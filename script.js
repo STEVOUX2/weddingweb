@@ -193,25 +193,27 @@
   // Unlock and start audio — called on first real user gesture
   function unlockAudio() {
     if (interacted || userPaused) return;
-    interacted = true;
 
-    // Clean up ALL interaction listeners
-    ['click', 'touchstart', 'touchend', 'touchmove', 'keydown', 'pointerdown', 'pointerup'].forEach(function (evt) {
-      document.removeEventListener(evt, unlockAudio, true);
-    });
-    if (APP) APP.removeEventListener('scroll', unlockAudio, true);
-    window.removeEventListener('scroll', unlockAudio, true);
-
-    // Unmute and play
+    // Try to unmute and play
     audio.muted = false;
     var p = audio.play();
+    
     if (p !== undefined) {
       p.then(function () {
+        // Success! It is playing.
+        interacted = true;
         syncIcons(true);
+
+        // Clean up listeners only AFTER successful play
+        ['click', 'touchstart', 'touchend', 'touchmove', 'keydown', 'pointerdown', 'pointerup'].forEach(function (evt) {
+          document.removeEventListener(evt, unlockAudio, true);
+          document.removeEventListener(evt, unlockAudio, { capture: true });
+        });
+        if (APP) APP.removeEventListener('scroll', unlockAudio, true);
+        window.removeEventListener('scroll', unlockAudio, true);
       }).catch(function (err) {
-        // Retry once on click-type events (some browsers need a second try)
-        console.warn('Audio play blocked, will retry on next interaction:', err);
-        interacted = false; // allow retry
+        // Silently fail and wait for the next user interaction event
+        interacted = false;
       });
     }
   }
