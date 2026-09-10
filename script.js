@@ -26,11 +26,16 @@
 
   // ── LOADER ───────────────────────────────────────────────────
   // Hide loader after assets+animations settle (~2.4s)
-  function hideLoader() {
+  function setupLoader() {
     var loader = $('loader');
     if (!loader) return;
-    setTimeout(function () {
+    
+    loader.addEventListener('click', function () {
       loader.classList.add('hide');
+      
+      var app = document.getElementById('app');
+      if (app) app.classList.remove('no-scroll');
+      
       // Trigger cinematic hero entrance on #hero element
       var hero = document.getElementById('hero');
       if (hero) {
@@ -38,9 +43,9 @@
           hero.classList.add('loaded');
         });
       }
-    }, 3000);
+    });
   }
-  hideLoader();
+  setupLoader();
 
   // ── HERO COUNTDOWN ───────────────────────────────────────────
   function initCountdown() {
