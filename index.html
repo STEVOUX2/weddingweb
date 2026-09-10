@@ -111,8 +111,8 @@ body{
 /* full-height inner layout */
 .ld-wrapper-inner {
   position: absolute; left: 0; width: 100%; height: 100svh;
-  display: flex; flex-direction: column; align-items: center; justify-content: space-between;
-  padding: clamp(60px, 10svh, 90px) 32px clamp(40px, 6svh, 60px);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 32px;
   box-sizing: border-box;
 }
 .loader-top    .ld-wrapper-inner { top: 0; }
@@ -129,9 +129,8 @@ body{
 
 /* ---- Names ---- */
 .ld-text-stack {
-  display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
   gap: 4px; flex-shrink: 0;
-  margin-top: clamp(10px, 2svh, 30px);
 }
 .ld-mask { overflow: hidden; padding: 3px 24px; }
 .ld-word {
@@ -163,7 +162,7 @@ body{
   opacity: 0;
   animation: ldFadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 1.45s forwards;
   flex-shrink: 0;
-  margin: auto 0;
+  margin: 45px 0;
 }
 .tap-btn-wrapper {
   position: relative;
@@ -224,33 +223,11 @@ body{
   animation: ldFadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 1.8s forwards;
   gap: 0;
   flex-shrink: 0;
-  margin-bottom: clamp(10px, 2svh, 20px);
 }
 .ld-invite {
   font-family: var(--font-sans); font-size: 0.57rem; letter-spacing: 0.44em;
   text-transform: uppercase; color: #a89d91;
-  margin-bottom: 14px;
-}
-/* luxury ornament divider — replaces simple line */
-.ld-line {
-  display: flex; flex-direction: column; align-items: center;
-  margin: 0 0 14px;
-}
-.ld-line::before {
-  content: '';
-  display: block; width: 1px; height: 20px;
-  background: linear-gradient(to bottom, rgba(168,147,124,0.06), rgba(168,147,124,0.5));
-}
-.ld-line::after {
-  content: '';
-  display: block; width: 1px; height: 20px;
-  background: linear-gradient(to top, rgba(168,147,124,0.06), rgba(168,147,124,0.5));
-}
-.ld-line-diamond {
-  width: 5px; height: 5px;
-  background: rgba(168, 147, 124, 0.55);
-  transform: rotate(45deg);
-  margin: 3px 0; flex-shrink: 0;
+  margin-bottom: 20px;
 }
 .ld-date {
   font-family: var(--font-script);
@@ -1921,11 +1898,6 @@ footer{
       
       <div class="ld-footer">
         <div class="ld-invite">You Are Invited</div>
-        <div class="ld-ornament">
-          <div class="ld-ornament-line"></div>
-          <div class="ld-ornament-diamond"></div>
-          <div class="ld-ornament-line bottom"></div>
-        </div>
         <div class="ld-date">October 24 &amp; 25, 2026</div>
       </div>
     </div>
@@ -1967,11 +1939,6 @@ footer{
       
       <div class="ld-footer">
         <div class="ld-invite">You Are Invited</div>
-        <div class="ld-ornament">
-          <div class="ld-ornament-line"></div>
-          <div class="ld-ornament-diamond"></div>
-          <div class="ld-ornament-line bottom"></div>
-        </div>
         <div class="ld-date">October 24 &amp; 25, 2026</div>
       </div>
     </div>
