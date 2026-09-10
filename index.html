@@ -110,10 +110,10 @@ body{
 
 /* full-height inner layout */
 .ld-wrapper-inner {
-  position: absolute; left: 0; width: 100%; height: 100vh;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  padding: 7vh 32px; box-sizing: border-box;
-  gap: clamp(20px, 4vh, 40px);
+  position: absolute; left: 0; width: 100%; height: 100svh;
+  display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+  padding: clamp(60px, 10svh, 90px) 32px clamp(40px, 6svh, 60px);
+  box-sizing: border-box;
 }
 .loader-top    .ld-wrapper-inner { top: 0; }
 .loader-bottom .ld-wrapper-inner { bottom: 0; }
@@ -129,8 +129,9 @@ body{
 
 /* ---- Names ---- */
 .ld-text-stack {
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
   gap: 4px; flex-shrink: 0;
+  margin-top: clamp(10px, 2svh, 30px);
 }
 .ld-mask { overflow: hidden; padding: 3px 24px; }
 .ld-word {
@@ -161,6 +162,8 @@ body{
   position: relative; display: flex; align-items: center; justify-content: center;
   opacity: 0;
   animation: ldFadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 1.45s forwards;
+  flex-shrink: 0;
+  margin: auto 0;
 }
 .tap-btn-wrapper {
   position: relative;
@@ -220,6 +223,8 @@ body{
   opacity: 0;
   animation: ldFadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 1.8s forwards;
   gap: 0;
+  flex-shrink: 0;
+  margin-bottom: clamp(10px, 2svh, 20px);
 }
 .ld-invite {
   font-family: var(--font-sans); font-size: 0.57rem; letter-spacing: 0.44em;
