@@ -7,7 +7,7 @@
   'use strict';
 
   // ── APPS SCRIPT URL ──────────────────────────────────────────
-  var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyZPGD-qPcMNvJOKXdqPFDB67rCd8r7b77iA6HnhsAKv3gCeaOQaSRrQGNf1EOlDSbF/exec';
+  var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwudQMx5QFr2HJ2v4HthZKZtfBc_pAfCeysBfG_Og5cee6wdtueLH_GKVm_Rj20crHa/exec';
 
   // ── UTILITIES ────────────────────────────────────────────────
   function $(id) { return document.getElementById(id); }
