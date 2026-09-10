@@ -196,7 +196,7 @@
     interacted = true;
 
     // Clean up ALL interaction listeners
-    ['click', 'touchstart', 'keydown', 'pointerdown'].forEach(function (evt) {
+    ['click', 'touchstart', 'touchend', 'touchmove', 'keydown', 'pointerdown', 'pointerup'].forEach(function (evt) {
       document.removeEventListener(evt, unlockAudio, true);
     });
     if (APP) APP.removeEventListener('scroll', unlockAudio, true);
@@ -219,7 +219,7 @@
   // Register on DOCUMENT (capture phase) — catches clicks anywhere including
   // inside #app, iframes, shadow roots. Also listen on #app scroll since
   // it is the real scroll container, not window.
-  ['click', 'touchstart', 'keydown', 'pointerdown'].forEach(function (evt) {
+  ['click', 'touchstart', 'touchend', 'touchmove', 'keydown', 'pointerdown', 'pointerup'].forEach(function (evt) {
     document.addEventListener(evt, unlockAudio, { passive: true, capture: true });
   });
   if (APP) APP.addEventListener('scroll', unlockAudio, { passive: true });
