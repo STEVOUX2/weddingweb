@@ -24,8 +24,8 @@ button{cursor:pointer;border:none;background:none;font:inherit}
    DESIGN TOKENS
 Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
 :root{
-  --bg-main: #F9F6F0;       /* Light airy cream/paper */
-  --bg-alt: #EBE5DB;        /* Slightly darker taupe/cream for sections */
+  --bg-main: transparent;       /* Transparent so #app main background pattern shows through */
+  --bg-alt: rgba(235, 229, 219, 0.6);        /* Slightly darker taupe/cream for sections */
   --bg-dark: #8E8378;       /* The brownish taupe background for the timeline */
   
   --text-main: #2C2A28;     /* Dark charcoal for main text */
@@ -47,14 +47,15 @@ button{cursor:pointer;border:none;background:none;font:inherit}
 Ã¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢ÂÃ¢â€¢Â */
 body{
   font-family:var(--font-serif);
-  background:#DCD3C6; /* Behind the app container */
+  background:#FFFFFF; /* White background during opening scene */
   color:var(--text-main);
   display:flex;justify-content:center;align-items:flex-start;
   min-height:100vh;overflow-x:hidden;
 }
 #app{
   width:100%;max-width:430px;min-height:100vh;
-  background:var(--bg-main);position:relative;overflow-x:hidden;
+  background:#FDFBF8 url('card-bg.png') repeat center / 320px auto;
+  position:relative;overflow-x:hidden;
   overflow-y:auto;scroll-behavior:smooth;
   container-type: inline-size;
 }
@@ -66,9 +67,14 @@ body{
   #app{box-shadow:0 0 120px rgba(0,0,0,.15),0 0 40px rgba(0,0,0,.1)}
   body::before{
     content:'';position:fixed;inset:0;
-    /* Sky texture imitation */
-    background: radial-gradient(circle at 50% 50%, #EFE8DF 0%, #DCD3C6 100%);
-    z-index:-1
+    background: #EFE8DF url('card-bg.png') repeat center / 360px auto;
+    opacity: 0.5;
+    z-index:-1;
+    transition: opacity 0.8s ease;
+  }
+  body:has(#loader:not(.hide))::before,
+  #loader:not(.hide) ~ body::before {
+    opacity: 0 !important;
   }
   /* Smaller hero names on desktop */
   .hero-name { font-size: clamp(1.4rem, 5cqi, 2rem); }
@@ -83,7 +89,7 @@ body{
   position: fixed; top: 0; bottom: 0; left: 50%; transform: translateX(-50%);
   width: 100%; max-width: 430px; z-index: 9999;
   container-type: inline-size;
-  background: transparent; pointer-events: none;
+  background: #FFFFFF; pointer-events: none;
   transition: visibility 1.4s ease 0.3s;
 }
 #loader.hide { visibility: hidden; }
@@ -91,7 +97,7 @@ body{
 .loader-half {
   position: absolute; left: 0; width: 100%; height: 50%;
   overflow: hidden; pointer-events: all;
-  background: #F5F0EA;
+  background: #FFFFFF;
   transition: transform 1.4s cubic-bezier(0.76, 0, 0.24, 1) 0.05s;
 }
 .loader-top  { top: 0; }
@@ -1182,10 +1188,10 @@ section{padding:clamp(80px,16cqi,130px) 32px;position:relative}
   left: 50%;
   transform: translateX(-50%) translateY(50px) rotate(-1deg);
   opacity: 0;
-  background: #FDFBF8;
+  background: #FFFFFF;
   width: 85%;
   padding: 30px 20px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
   border-radius: 2px;
   z-index: 2;
   transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.3s, opacity 1s ease 0.3s;
@@ -1249,8 +1255,8 @@ section{padding:clamp(80px,16cqi,130px) 32px;position:relative}
 .ev-card{
   display:grid;grid-template-columns:1fr auto;align-items:center;gap:16px;
   padding:28px 26px;
-  background:var(--cream); /* White background by default */
-  box-shadow:0 4px 30px rgba(0,0,0,.06); /* Shadow by default */
+  background:#FFFFFF;
+  box-shadow:0 4px 30px rgba(0,0,0,.06);
   border:1px solid var(--pearl-dark);
   position:relative;overflow:hidden;
   transition:transform .4s cubic-bezier(.23,1,.32,1),box-shadow .4s;
@@ -1548,10 +1554,10 @@ section{padding:clamp(80px,16cqi,130px) 32px;position:relative}
 .venue-list{margin-top:40px;display:flex;flex-direction:column;gap:16px}
 
 .venue-card{
-  background:#FDFBF8;
+  background:#FFFFFF;
   border:1px solid #D1C5B4;
   overflow:hidden;
-  box-shadow:0 4px 20px rgba(0,0,0,.03);
+  box-shadow:0 4px 20px rgba(0,0,0,.04);
   transition:box-shadow .5s cubic-bezier(.23,1,.32,1),transform .5s cubic-bezier(.23,1,.32,1);
   padding: 10px;
 }
@@ -2036,7 +2042,7 @@ footer{
       <div class="cd-sep">:</div>
       <div class="cd-item"><span id="cd-s">00</span><label>Sec</label></div>
     </div>
-    <a class="hero-loc-link" href="https://maps.app.goo.gl/B1opVm6GVCYG1gP96?g_st=aw" target="_blank">
+    <a class="hero-loc-link" href="https://maps.app.goo.gl/Y9co6bKL7TXEVoz16?g_st=aw" target="_blank">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
       Kalluvathukkal, Kerala
     </a>
@@ -2151,7 +2157,7 @@ footer{
   <p class="s-body reveal d3">Join us as we celebrate love across two beautiful days.</p>
 
   <div class="ev-list">
-    <a class="ev-card reveal d1" href="https://maps.app.goo.gl/B1opVm6GVCYG1gP96?g_st=aw" target="_blank" rel="noopener">
+    <a class="ev-card reveal d1" href="https://maps.app.goo.gl/Y9co6bKL7TXEVoz16?g_st=aw" target="_blank" rel="noopener">
       <div>
         <div class="ev-tag">Day One &middot; Reception</div>
         <div class="ev-name">Reception Evening</div>
@@ -2338,7 +2344,7 @@ footer{
       <div class="vc-body">
         <h3 class="vc-name">Reception Venue</h3>
         <p class="vc-sub">View the exact location and get<br>directions via Google Maps</p>
-        <a class="vc-map-btn" href="https://maps.app.goo.gl/B1opVm6GVCYG1gP96?g_st=aw" target="_blank" rel="noopener">
+        <a class="vc-map-btn" href="https://maps.app.goo.gl/Y9co6bKL7TXEVoz16?g_st=aw" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
           Open in Google Maps
         </a>
