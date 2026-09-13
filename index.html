@@ -89,7 +89,7 @@ body{
   position: fixed; top: 0; bottom: 0; left: 50%; transform: translateX(-50%);
   width: 100%; max-width: 430px; z-index: 9999;
   container-type: inline-size;
-  background: #FFFFFF; pointer-events: none;
+  background: #FAF6EE; pointer-events: none;
   transition: visibility 1.4s ease 0.3s;
 }
 #loader.hide { visibility: hidden; }
@@ -97,7 +97,7 @@ body{
 .loader-half {
   position: absolute; left: 0; width: 100%; height: 50%;
   overflow: hidden; pointer-events: all;
-  background: #FFFFFF;
+  background: #FAF6EE;
   transition: transform 1.4s cubic-bezier(0.76, 0, 0.24, 1) 0.05s;
 }
 .loader-top  { top: 0; }
@@ -109,54 +109,58 @@ body{
 /* thin inner border — drawn in halves */
 .loader-half::after {
   content: ""; position: absolute; left: 18px; right: 18px;
-  border: 1px solid rgba(185, 170, 152, 0.38); pointer-events: none;
+  border: 1px solid rgba(168, 128, 64, 0.35); pointer-events: none;
 }
 .loader-top::after    { top: 18px; bottom: 0; border-bottom: none; }
 .loader-bottom::after { top: 0; bottom: 18px; border-top: none;    }
 
-/* full-height inner layout */
+/* full-height inner layout with opening background image */
 .ld-wrapper-inner {
   position: absolute; left: 0; width: 100%; height: 100svh;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  padding: 32px;
+  display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+  padding: 48px 24px 32px 24px;
   box-sizing: border-box;
+  background: #FAF6EE url('opening-bg.jpg') no-repeat center center / cover;
 }
 .loader-top    .ld-wrapper-inner { top: 0; }
 .loader-bottom .ld-wrapper-inner { bottom: 0; }
 
 /* ---- Botanical corner ornaments ---- */
 .ld-botanical {
-  position: absolute; opacity: 0.11; pointer-events: none;
-  color: #9e8e7a;
+  position: absolute; opacity: 0.18; pointer-events: none;
+  color: #9A773E;
   animation: ldFadeIn 2s ease 0.2s both;
 }
-.ld-botanical-tl { top: 26px; left: 26px; }
-.ld-botanical-br { bottom: 26px; right: 26px; transform: rotate(180deg); }
+.ld-botanical-tl { top: 24px; left: 24px; }
+.ld-botanical-br { bottom: 24px; right: 24px; transform: rotate(180deg); }
 
 /* ---- Names ---- */
 .ld-text-stack {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 4px; flex-shrink: 0;
+  gap: 2px; flex-shrink: 0;
+  margin-top: 110px;
 }
-.ld-mask { overflow: hidden; padding: 3px 24px; }
+.ld-mask { overflow: hidden; padding: 2px 20px; }
 .ld-word {
   display: block;
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(3rem, 11cqi, 4.6rem);
-  font-weight: 400;
-  color: #2c2420;
+  font-size: clamp(2.8rem, 10.5cqi, 4.4rem);
+  font-weight: 500;
+  color: #2c1a0e;
   line-height: 1.05;
   letter-spacing: 0.035em;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);
   transform: translateY(110%);
 }
 .ld-amp {
   display: block;
   font-family: var(--font-script);
-  font-size: clamp(2rem, 7cqi, 3.2rem);
-  color: #a8937c;
+  font-size: clamp(1.8rem, 6.5cqi, 3rem);
+  color: #9A773E;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
   transform: translateY(110%);
   line-height: 1.1;
-  margin: -2px 0;
+  margin: -4px 0;
 }
 .ld-w1   { animation: ldSlideUp 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.5s  forwards; }
 .ld-wamp { animation: ldSlideUp 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.78s forwards; }
@@ -168,7 +172,7 @@ body{
   opacity: 0;
   animation: ldFadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 1.45s forwards;
   flex-shrink: 0;
-  margin: 45px 0;
+  margin: auto 0;
 }
 .tap-btn-wrapper {
   position: relative;
@@ -180,30 +184,35 @@ body{
   content: '';
   position: absolute;
   inset: -7px; border-radius: 50px;
-  border: 1px solid rgba(168, 147, 124, 0.28);
+  border: 1px solid rgba(168, 128, 64, 0.4);
   animation: breatheRing 4s ease-in-out infinite;
   pointer-events: none;
 }
 .tap-btn {
   position: relative;
-  background: transparent;
-  border: 1px solid rgba(168, 147, 124, 0.55);
-  color: #8a7d6e;
+  background: rgba(255, 253, 248, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(168, 128, 64, 0.6);
+  color: #3b2512;
   font-family: var(--font-sans);
-  font-size: 0.57rem;
-  letter-spacing: 0.36em;
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.38em;
   text-transform: uppercase;
   padding: 13px 30px;
   border-radius: 40px;
   cursor: pointer; pointer-events: all;
-  display: flex; align-items: center; gap: 9px;
-  transition: background 0.5s ease, letter-spacing 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+  display: flex; align-items: center; gap: 10px;
+  box-shadow: 0 8px 24px rgba(60, 40, 20, 0.14);
+  transition: background 0.5s ease, letter-spacing 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
 }
 .tap-btn:hover {
-  background: rgba(168, 147, 124, 0.06);
-  border-color: rgba(168, 147, 124, 0.8);
+  background: rgba(255, 253, 248, 0.98);
+  border-color: rgba(168, 128, 64, 0.9);
   letter-spacing: 0.42em;
-  color: #5e5246;
+  color: #241407;
+  box-shadow: 0 12px 30px rgba(60, 40, 20, 0.22);
 }
 .tap-btn:active { transform: scale(0.97); transition: transform 0.12s ease; }
 /* small arrow */
@@ -227,18 +236,21 @@ body{
   display: flex; flex-direction: column; align-items: center;
   opacity: 0;
   animation: ldFadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 1.8s forwards;
-  gap: 0;
+  gap: 2px;
   flex-shrink: 0;
+  margin-bottom: 6px;
 }
 .ld-invite {
-  font-family: var(--font-sans); font-size: 0.57rem; letter-spacing: 0.44em;
-  text-transform: uppercase; color: #a89d91;
-  margin-bottom: 20px;
+  font-family: var(--font-sans); font-size: 0.58rem; letter-spacing: 0.44em;
+  text-transform: uppercase; color: #FCE8C5; font-weight: 500;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0,0,0,0.6);
+  margin-bottom: 2px;
 }
 .ld-date {
   font-family: var(--font-script);
-  font-size: clamp(1.3rem, 4cqi, 1.7rem);
-  color: #3a2e28;
+  font-size: clamp(1.35rem, 4.2cqi, 1.8rem);
+  color: #FFFFFF;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 0 12px rgba(0,0,0,0.7);
 }
 
 /* ---- Keyframes ---- */
